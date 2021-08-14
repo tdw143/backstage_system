@@ -24,6 +24,7 @@
             v-model="loginForm.password"
             prefix-icon="el-icon-lock"
             type="password"
+            @keyup.enter.native="login"
           ></el-input>
         </el-form-item>
         <el-form-item class="btns">
@@ -36,7 +37,7 @@
 </template>
 
 <script>
-// import { enter } from 'network/login'
+
 export default {
   name: "Login",
   data() {
@@ -60,7 +61,7 @@ export default {
   methods: {
     login() {
       this.$refs.loginFormRef.validate(async valid => {
-        console.log(valid);
+        // console.log(valid);
         // if(valid) {
         //   alert('congratulations')
         // } else {
@@ -76,7 +77,7 @@ export default {
         const { data: res } = await this.$http.post('login', this.loginForm)
         if (res.meta.status !== 200) return this.$message.error("登录失败")
         this.$message.success("登录成功")
-        console.log(res);
+        // console.log(res);
 
         window.sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')
