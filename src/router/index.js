@@ -7,7 +7,8 @@ const Welcome = () => import('../views/home/welcome/Welcome')
 const Users = () => import('../views/home/users/Users')
 const Rights = () => import('../views/home/power/Rights')
 const Roles = () => import('../views/home/power/Roles')
-const Categories = () => import('../views/home/category/Categories')
+const Categories = () => import('../views/home/goods/Categories')
+const Params = () => import('../views/home/goods/Params')
 
 Vue.use(VueRouter)
 
@@ -43,6 +44,10 @@ const routes = [
     {
       path: '/categories',
       component: Categories
+    },
+    {
+      path: '/params',
+      component: Params
     }
   ]
   }
